@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>שיעורים בדרך רבי נחמן מברסלב</title>
+  <style>
+
+    @font-face {
+      font-family: "FrankRuehl";
+      src: url("/usr/share/fonts/truetype/culmus/FrankRuehlCLM-Medium.ttf") format("truetype");
+      font-weight: 400 500;
+    }
+    @font-face {
+      font-family: "FrankRuehl";
+      src: url("/usr/share/fonts/truetype/culmus/FrankRuehlCLM-Bold.ttf") format("truetype");
+      font-weight: 700 900;
+    }
+    @font-face {
+      font-family: "NotoHeb";
+      src: url("/usr/share/fonts/truetype/noto/NotoSansHebrew-Regular.ttf") format("truetype");
+      font-weight: 300 400 500;
+    }
+    @font-face {
+      font-family: "NotoHeb";
+      src: url("/usr/share/fonts/truetype/noto/NotoSansHebrew-Bold.ttf") format("truetype");
+      font-weight: 700 900;
+    }
+
+    :root {
+      --bg:           #edf2ea;
+      --bg-alt:       #e2ece0;
+      --paper:        #f4f9f2;
+      --paper-end:    #eef6ec;
+      --paper-edge:   #c8dcc0;
+      --ink:          #1e2e1e;
+      --ink-soft:     #3a4e36;
+      --ink-faint:    #7a9a72;
+      --green:        #2d6b3c;
+      --green-deep:   #1a4526;
+      --gold:         #7a9a40;
+      --gold-soft:    #adc470;
+
+      --shadow-sm:    0 2px 4px rgba(10,40,10,.06);
+      --shadow-md:    0 20px 60px -24px rgba(10,40,10,.18),
+                      0 8px 20px -8px rgba(10,40,10,.10);
+      --shadow-lg:    0 60px 160px -60px rgba(10,40,10,.30),
+                      0 20px 60px -20px rgba(10,40,10,.15);
+
+      --font-display: "FrankRuehl", "Frank Ruhl Libre", "David Libre", serif;
+      --font-body:    "NotoHeb", "Heebo", "Assistant", "Arial Hebrew", system-ui, Arial, sans-serif;
+
+      --r-sm:  14.4px;
+      --r-md:  33.6px;
+      --r-lg:  52.8px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 40.8px;          /* 20.4px × 2 */
+      line-height: 1.85;
+      font-weight: 500;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      background:
+        radial-gradient(1320px 840px at 50% -10%, rgba(210,235,200,.75) 0%, transparent 60%),
+        radial-gradient(1080px 720px at 100% 100%, #c8dcb6 0%, transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--green);
+      text-decoration: none;
+      border-bottom: 2px solid rgba(45,107,60,.35);
+      word-break: break-word;
+    }
+    a:hover, a:focus-visible {
+      color: var(--green);
+      border-bottom-color: var(--green-deep);
+      background-color: rgba(45,107,60,.06);
+    }
+
+    .glow {
+      position: fixed;
+      pointer-events: none;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: .5;
+      z-index: 0;
+    }
+    .glow--top {
+      width: 624px; height: 624px;
+      top: -216px; right: -144px;
+      background: radial-gradient(circle, rgba(210,235,185,.8) 0%, transparent 70%);
+    }
+    .glow--bottom {
+      width: 576px; height: 576px;
+      bottom: -240px; left: -168px;
+      background: radial-gradient(circle, rgba(184,220,170,.7) 0%, transparent 70%);
+      opacity: .3;
+    }
+
+    /* ── Page width stays at 912px — only fonts/spacing are doubled ── */
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 912px;
+      margin: 0 auto;
+      padding: 76.8px 43.2px 153.6px;   /* vertical ×2, horizontal kept */
+    }
+
+    .card {
+      position: relative;
+      background: var(--paper);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--r-lg);
+      padding: 96px 48px 86.4px;
+      box-shadow: var(--shadow-lg);
+      background-image:
+        radial-gradient(1440px 480px at 50% 0%, rgba(255,255,255,.65) 0%, transparent 60%),
+        linear-gradient(180deg, var(--paper) 0%, var(--paper-end) 100%);
+    }
+
+    .ornament {
+      color: var(--gold);
+      display: flex;
+      justify-content: center;
+      margin-bottom: 33.6px;
+    }
+    .ornament--footer { margin: 67.2px 0 14.4px; }
+
+    .story {
+      padding: 19.2px 9.6px 0;
+      color: var(--ink);
+    }
+
+    .story p {
+      margin: 0 0 1.15em;
+      font-size: 43.2px;
+      line-height: 1.95;
+      font-weight: 500;
+    }
+
+    .lede {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 57.6px !important;
+      line-height: 1.55 !important;
+      color: var(--ink);
+      border-inline-start: 7.2px solid var(--gold-soft);
+      padding-inline-start: 38.4px;
+      margin: 19.2px 0 57.6px !important;
+    }
+
+    .emph {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 50.4px !important;
+      line-height: 1.6 !important;
+      color: var(--green-deep);
+      background: linear-gradient(180deg, rgba(45,107,60,.06), rgba(45,107,60,.02));
+      border: 2px solid rgba(45,107,60,.15);
+      border-radius: var(--r-md);
+      padding: 43.2px 48px;
+      margin: 57.6px 0 !important;
+      text-align: center;
+    }
+
+    .pull-quote {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 91.2px;
+      line-height: 1.1;
+      color: var(--green);
+      margin-top: 14.4px;
+      letter-spacing: -0.01em;
+      position: relative;
+      padding: 9.6px 0;
+    }
+    .pull-quote::after {
+      content: "";
+      display: block;
+      width: 153.6px;
+      height: 7.2px;
+      background: var(--gold);
+      border-radius: 4px;
+      margin-top: 19.2px;
+    }
+
+    .invite {
+      margin-top: 67.2px !important;
+      color: var(--ink-soft);
+      border-block-start: 2px dashed var(--paper-edge);
+      padding-top: 57.6px;
+    }
+
+    .links {
+      margin-top: 62.4px;
+      display: grid;
+      gap: 33.6px;
+    }
+
+    .link-block {
+      background: linear-gradient(180deg, #f0f8ec 0%, #e4f0dc 100%);
+      border: 1px solid var(--paper-edge);
+      border-radius: var(--r-md);
+      padding: 43.2px 48px;
+      box-shadow: var(--shadow-sm);
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .link-block:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--gold-soft);
+    }
+
+    .link-block--accent { background: linear-gradient(180deg, #f0f8ec 0%, #e4f0dc 100%); }
+    .link-block--accent a { color: var(--green); }
+
+    .link-block__intro {
+      margin: 0 0 14.4px;
+      color: var(--ink);
+      font-size: 43.2px;
+      line-height: 1.75;
+    }
+    .link-block__url {
+      margin: 9.6px 0 0;
+      color: var(--green-deep);
+      font-size: 38.4px;
+      font-weight: 800;
+      word-break: break-all;
+    }
+
+    .asterisks { color: var(--gold); font-weight: 700; margin-inline-end: 4px; }
+    .phone { color: var(--green); font-weight: 700; }
+    .plain-url { color: var(--green-deep); font-weight: 800; word-break: break-all; }
+
+    .link-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 19.2px;
+      margin-top: 24px;
+    }
+
+    .open-link, .copy-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(122,154,64,.38);
+      border-radius: 999px;
+      background: rgba(240,248,236,.72);
+      color: var(--green);
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 38.4px;
+      font-weight: 700;
+      line-height: 1;
+      padding: 24px 38.4px;
+      text-decoration: none;
+      border-bottom: none;
+    }
+    .open-link {
+      background: #e4f4e0;
+      border-color: #7ab870;
+      color: var(--green-deep);
+    }
+    .copy-link.is-copied {
+      background: var(--green-deep);
+      border-color: var(--green-deep);
+      color: #e8f4e0;
+    }
+
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+    @page {
+      size: 912px 76000px;
+      margin: 0;
+    }
+    * {
+      page-break-inside: avoid !important;
+      page-break-before: avoid !important;
+      page-break-after: avoid !important;
+      break-inside: avoid !important;
+      break-before: avoid !important;
+      break-after: avoid !important;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="glow glow--top"    aria-hidden="true"></div>
+  <div class="glow glow--bottom" aria-hidden="true"></div>
+
+  <main class="page">
+    <article class="card" role="article" aria-labelledby="page-story">
+
+      <div class="ornament" aria-hidden="true">
+        <svg viewBox="0 0 80 12" width="192" height="28.8">
+          <circle cx="6"  cy="6" r="2"   fill="currentColor" opacity="0.45"/>
+          <line x1="14" y1="6" x2="34" y2="6" stroke="currentColor" stroke-width="1" opacity="0.45"/>
+          <circle cx="40" cy="6" r="3"   fill="currentColor"/>
+          <line x1="46" y1="6" x2="66" y2="6" stroke="currentColor" stroke-width="1" opacity="0.45"/>
+          <circle cx="74" cy="6" r="2"   fill="currentColor" opacity="0.45"/>
+        </svg>
+      </div>
+
+      <section class="story" id="page-story">
+
+        <p class="lede">יֵשׁ אֲנָשִׁים שֶׁאַתָּה לֹא מֵבִין אוֹתָם דֶּרֶךְ הַסִּפּוּר שֶׁלָּהֶם, אֶלָּא דֶּרֶךְ הַתְּחוּשָׁה שֶׁהֵם מַשְׁאִירִים אַחֲרֵיהֶם.</p>
+
+        <p>יֵשׁ דְּמוּיוֹת שֶׁאַתָּה לֹא "לוֹמֵד עֲלֵיהֶן" — אַתָּה פָּשׁוּט פּוֹגֵשׁ אוֹתָן, וּמֵבִין שֶׁיֵּשׁ כָּאן מְשֶׁהוּ אַחֵר.<br/>
+        קָשֶׁה לְהַסְבִּיר אֶת הָרַב הַזֶּה בְּלִי לִפְגֹּשׁ אוֹתוֹ דֶּרֶךְ הַחַיִּים עַצְמָם.</p>
+
+        <p>רַב מוּכָר, שֶׁמְּלַוֶּה אֶלְפֵי אֲנָשִׁים וּנְעָרִים בְּסִיכוּן, וּמוֹסֵר כְּבָר קָרוֹב לְ־30 שָׁנָה שִׁיעוּרִים בְּדֶּרֶךְ רַבִּי נַחְמָן מִבְּרֶסְלֶב לְגַבְרִים וּלְנָשִׁים בְּכַמָּה מוֹקְדִים בָּאָרֶץ.<br/>
+        מִי שֶׁמְּכִיר אוֹתוֹ לֹא מְדַבֵּר עָלָיו רַק דֶּרֶךְ תִּפְקִיד אוֹ פְּעִילּוּת, אֶלָּא דֶּרֶךְ נוֹכָחוּת. דֶּרֶךְ אוֹפֶן הַהִסְתַּכְּלוּת שֶׁלּוֹ עַל הַחַיִּים. דֶּרֶךְ הָאוֹפֶן שֶׁבּוֹ הוּא מַגִּיב לְמַצָּבִים.</p>
+
+        <p>בְּמֶשֶׁךְ הַשָּׁנִים הָיוּ גַּם תְּקוּפוֹת מוּרְכָּבוֹת מְאוֹד בְּחַיָּיו הָאִישִׁיִּים — בֵּיתָם הוּעֲבַר בְּעֶסְקַת מַרְמָה; חֶרֶף הֲלִיכִים מִשְׁפָּטִיִּים יְקָרִים, הַמִּשְׁפָּחָה נוֹתְרָה לְלֹא קוֹרַת גָּג וְתַחַת נֵטֶל שְׂכִירוּת.<br/>
+        שִׁינּוּיִים כְּלָכְלִיִּים וּמִשְׁפָּחְתִּיִּים מְשַׁמָּעוּתִיִּים, וְגַם אָבְדָן פִּתְאוֹמִי שֶׁל בְּנוֹ בֶּן ה־19.</p>
+
+        <p class="emph">כָּל זֶה לֹא נֶעֱלַם מֵהַחַיִּים שֶׁלּוֹ. אֲבָל גַּם לֹא הָפַךְ לִהְיוֹת מֶרְכַּז הַחַיִּים שֶׁלּוֹ.</p>
+
+        <p>מַה שֶּׁמְּפַתֵּיעַ אֶצֶל מִי שֶׁמְּכִירוֹ מִקָּרוֹב הוּא לֹא עֶצֶם הַקָּשִׁיִּים — אֶלָּא הָאוֹפֶן שֶׁבּוֹ הַחַיִּים מַמְשִׁיכִים לְהִתְנַהֵל בְּתוֹכָם.<br/>
+        לֹא מִתּוֹךְ הַכְחָשָׁה, וְלֹא מִתּוֹךְ נִיתּוּק מֵהַמְּצִיאוּת, אֶלָּא מִתּוֹךְ מְשֶׁהוּ אַחֵר: יְצִיבוּת פְּנִימִית שֶׁלֹּא תְּלוּיָה בְּמָה שֶׁקּוֹרֶה בַּחוּץ.</p>
+
+        <p>בְּפוֹעַל, זֶה נִרְאֶה פָּשׁוּט. כִּמְעַט יוֹמְיוֹמִי.<br/>
+        שִׂיחוֹת עִם אֲנָשִׁים שֶׁמַּגִּיעִים אֵלָיו וּמְקַבְּלִים חִיזּוּק, שִׁיעוּרִים שֶׁנִּמְסָרִים לְאוֹרֶךְ שָׁנִים, מִפְגָּשִׁים עִם בְּנֵי נוֹעַר וַאֲנָשִׁים בְּמַצָּבִים מוּרְכָּבִים — וְכָל זֶה לְצַד מְצִיאוּת אִישִׁית לֹא פְּשׁוּטָה בְּכָלל.</p>
+
+        <p>אֲבָל הָאֲוִירָה סְבִיבוֹ לֹא נִשְׁבֶּרֶת לְפִי מָה שֶׁקּוֹרֶה בָּרֶקַע. יֵשׁ שָׁם מְשֶׁהוּ שֶׁמַּחְזִיק קַו שֶׁל חַיִּים. שֶׁל חַיּוּת. שֶׁל תְּנוּעָה קָדִימָה.</p>
+
+        <p>מַה שֶּׁמְּבַלְבֵּל הַרְבֵּה אֲנָשִׁים הוּא הַפָּעֵר הַזֶּה:<br/>
+        אֵיךְ אָדָם שֶׁחַי בְּתוֹךְ עוֹמָסִים כָּל כָּךְ גְּדוֹלִים לֹא נִסְגָּר פְּנִימָה, אֶלָּא נִשְׁאָר פָּתוּחַ לַאֲחֵרִים.<br/>
+        אֵיךְ בְּתוֹךְ מְצִיאוּת שֶׁיְּכוֹלָה בְּקַלּוּת לְהַפֹּךְ לִכְבֵדָה — נִשְׁאֶרֶת שָׂפָה שֶׁל תִּקְוָה, שֶׁל חִיּוּךְ, שֶׁל שִׂמְחָה שֶׁלֹּא נִרְאֵית מְאֻלֶּצֶת.</p>
+
+        <p>וְזֶה לֹא מְשֶׁהוּ שֶׁמְּסַבִּירִים מִבַּחוּץ. זֶה מְשֶׁהוּ שֶׁנִּקְלָט רַק מִתּוֹךְ מִפְגָּשׁ חוֹזֵר.</p>
+
+        <p>בְּמִקְבִּיל לְכָל זֶה, הוּא מַמְשִׁיךְ לְמַסֵּר שִׁיעוּרִים כְּבָר עֶשְׂרוֹת שָׁנִים לְפִי דֶּרֶךְ רַבִּי נַחְמָן מִבְּרֶסְלֶב, לְגַבְרִים וּלְנָשִׁים בִּמְקוֹמוֹת שׁוֹנִים בָּאָרֶץ.<br/>
+        סְבִיבוֹ מִתְקַבְּצִים אֶלְפֵי אֲנָשִׁים, כּוֹלֵל כְּאֵלֶּה שֶׁמַּגִּיעִים מִמְּקוֹמוֹת מוּרְכָּבִים מְאוֹד בְּחַיִּים, וּמְחַפְּשִׂים לֹא רַק יְדִיעָה — אֶלָּא אֲוִיר.<br/>
+        וּמִי שֶׁנִּמְצָא לְיַד זֶה לְאוֹרֶךְ זְמָן בְּדֶרֶךְ כְּלָל לֹא נִשְׁאָר אַדִּישׁ.<br/>
+        לֹא בִּגְלַל רַעְיוֹן אֶחָד, אֶלָּא בִּגְלַל מִפְגָּשׁ עִם צוּרַת חַיִּים.</p>
+
+        <p>וְהַשְּׁאֵלָה שֶׁנִּשְׁאֶרֶת אֶצֶל לֹא מְעַט אֲנָשִׁים הִיא לֹא "מַה הוּא אוֹמֵר", אֶלָּא מְשֶׁהוּ אַחֵר לְגַמְרֵי:<br/>
+        <span class="pull-quote">אֵיךְ חַיִּים כָּכָה???</span></p>
+
+        <p class="invite">אִם אֲפִילּוּ לְרֶגַע, גַּם אִם בְּ־0.00001 שֶׁל עֲשִׂירִית הַשְּׁנִיָּה, הִרְגַּשְׁתָּ מַשֶּׁהוּ — גַּם אִם לֹא בָּרוּר לְךָ מַה הוּא —<br/>
+        הִנֵּה הַקְּשָׁרִים לְהַמְשֵׁךְ:</p>
+
+      </section>
+
+      <section class="links" aria-label="קישורים להמשך">
+
+        <div class="link-block">
+          <p class="link-block__intro">עֲרוּץ הַשִּׁיעוּרִים בְּטֶלֶגְרָם — לִשְׁמִיעָה, צְפִיָּה וְהִתְחַזְּקוּת, וְגַם לְתְגוּבוֹת פּוּמְבִּיּוֹת לְמִי שֶׁרוֹצֶה:</p>
+          <p class="link-block__url">https://t.me/+p4uy3QbDLUs2MTc8</p>
+          <div class="link-actions">
+            <a class="open-link" href="https://telegram.me/+p4uy3QbDLUs2MTc8" target="_blank" rel="noopener">פְּתִיחַת עֲרוּץ הַטֶּלֶגְרָם</a>
+            <button class="copy-link" type="button" data-copy="https://t.me/+p4uy3QbDLUs2MTc8">הַעְתָּקַת קִישׁוּר</button>
+          </div>
+        </div>
+
+        <div class="link-block link-block--accent">
+          <p class="link-block__intro"><span class="asterisks">**</span>וָוָאטְסְאַפּ אִישִׁי לִשְׁאֵלוֹת אִישִׁיּוֹת וְדִיסְקְרֶטִיּוֹת.<br/>
+          <span class="plain-url">https://wa.me/972525908737</span></p>
+          <div class="link-actions">
+            <a class="open-link" href="https://api.whatsapp.com/send?phone=972525908737" target="_blank" rel="noopener">פְּתִיחַת וָוָאטְסְאַפּ</a>
+            <button class="copy-link" type="button" data-copy="https://wa.me/972525908737">הַעְתָּקַת קִישׁוּר</button>
+          </div>
+        </div>
+
+        <div class="link-block">
+          <p class="link-block__intro">לְמִי שֶׁמַּרְגִּישׁ בְּלִבּוֹ רָצוֹן לְפָרְגֵּן אוֹ לְהַשְׁתַּתֵּף בְּהַחְזָקַת הַלִּמּוּד — אֶפְשָׁר לְהַעֲבִיר בְּבִּיט אוֹ בְּפֵייבּוֹקְס לְמִסְפָּר:<br/>
+          <span class="phone">052-5908737</span></p>
+          <div class="link-actions">
+            <a class="open-link" href="tel:0525908737" rel="noopener">חִיּוּג לְמִסְפָּר</a>
+            <button class="copy-link" type="button" data-copy="0525908737">הַעְתָּקַת מִסְפָּר</button>
+          </div>
+        </div>
+
+        <div class="link-block">
+          <p class="link-block__intro">וּלְמִי שֶׁרוֹצֶה תְּרוּמָה מְסוּדֶּרֶת עִם קַבָּלָה לְמֵייל דֶּרֶךְ נְדָרִים פְּלוּס:<br/>
+          <span class="plain-url">https://www.matara.pro/nedarimplus/online/?mosad=4001272</span></p>
+          <div class="link-actions">
+            <a class="open-link" href="https://www.matara.pro/nedarimplus/online/?mosad=4001272" target="_blank" rel="noopener">פְּתִיחַת נְדָרִים פְּלוּס</a>
+            <button class="copy-link" type="button" data-copy="https://www.matara.pro/nedarimplus/online/?mosad=4001272">הַעְתָּקַת קִישׁוּר</button>
+          </div>
+        </div>
+
+      </section>
+
+      <div class="ornament ornament--footer" aria-hidden="true">
+        <svg viewBox="0 0 80 12" width="192" height="28.8">
+          <circle cx="6"  cy="6" r="2"   fill="currentColor" opacity="0.45"/>
+          <line x1="14" y1="6" x2="34" y2="6" stroke="currentColor" stroke-width="1" opacity="0.45"/>
+          <circle cx="40" cy="6" r="3"   fill="currentColor"/>
+          <line x1="46" y1="6" x2="66" y2="6" stroke="currentColor" stroke-width="1" opacity="0.45"/>
+          <circle cx="74" cy="6" r="2"   fill="currentColor" opacity="0.45"/>
+        </svg>
+      </div>
+
+    </article>
+  </main>
+
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll('.copy-link');
+      buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          var value = button.getAttribute('data-copy');
+          if (!value) return;
+          function markCopied() {
+            var original = button.textContent;
+            button.textContent = 'הוּעְתַּק ✓';
+            button.classList.add('is-copied');
+            window.setTimeout(function () { button.textContent = original; button.classList.remove('is-copied'); }, 1800);
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(value).then(markCopied).catch(function () { window.prompt(':', value); });
+          } else { window.prompt(':', value); }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
